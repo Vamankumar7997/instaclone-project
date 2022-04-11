@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react'
-import {Link,useHistory} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import M from 'materialize-css'
 const SignIn  = ()=>{
-    const history = useHistory()
+    const navigate = useNavigate()
     const [name,setName] = useState("")
     const [password,setPasword] = useState("")
     const [email,setEmail] = useState("")
@@ -53,7 +53,7 @@ const SignIn  = ()=>{
            }
            else{
                M.toast({html:data.message,classes:"#43a047 green darken-1"})
-               history.push('/signin')
+               navigate.push('/signin')
            }
         }).catch(err=>{
             console.log(err)
